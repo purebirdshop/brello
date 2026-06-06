@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/src/index.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/src/index.ts"
+    }
+  ],
+  "env": {
+    "SUPABASE_URL": "@supabase_url",
+    "SUPABASE_ANON_KEY": "@supabase_anon_key",
+    "SUPABASE_SERVICE_ROLE_KEY": "@supabase_service_role_key",
+    "MUX_TOKEN_ID": "@mux_token_id",
+    "MUX_TOKEN_SECRET": "@mux_token_secret",
+    "ALLOWED_ORIGINS": "@allowed_origins",
+    "CRON_SECRET": "@cron_secret",
+    "API_BASE_URL": "@api_base_url",
+    "EXPO_PUBLIC_EAS_PROJECT_ID": "@eas_project_id",
+    "MUX_WEBHOOK_SECRET": "@mux_webhook_secret"
+  },
+  "crons": [
+    {
+      "path": "/api/notifications/process",
+      "schedule": "* * * * *"
+    }
+  ]
+}

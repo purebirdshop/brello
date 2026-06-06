@@ -1,0 +1,55 @@
+{
+  "expo": {
+    "name": "LocalLoop",
+    "slug": "localloop",
+    "version": "0.0.1",
+    "scheme": "localloop",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.localloop.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "LocalLoop needs camera access to record your introduction video.",
+        "NSMicrophoneUsageDescription": "LocalLoop needs microphone access to record audio in your introduction.",
+        "NSPhotoLibraryUsageDescription": "LocalLoop needs photo library access to save your introduction video.",
+        "NSContactsUsageDescription": "LocalLoop uses your contacts to find friends already on the app."
+      }
+    },
+    "android": {
+      "package": "com.localloop.app",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_CONTACTS",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-location",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "LocalLoop needs camera access to record your introduction video.",
+          "microphonePermission": "LocalLoop needs microphone access for your introduction video.",
+          "recordAudioAndroid": true
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      }
+    }
+  }
+}
